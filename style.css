@@ -1,4 +1,6 @@
-/* --- VARIÁVEIS E RESET --- */
+/* ==========================================================
+   1. VARIÁVEIS E RESET
+   ========================================================== */
 :root {
     --bg-main: #0c0d10;
     --bg-card: #14161d;
@@ -33,7 +35,9 @@ body {
     padding: 0 20px;
 }
 
-/* --- NAVBAR --- */
+/* ==========================================================
+   2. NAVBAR & MENU MOBILE
+   ========================================================== */
 .navbar {
     position: fixed;
     top: 0;
@@ -49,6 +53,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
 .logo {
@@ -58,6 +63,13 @@ body {
     color: var(--text-main);
     text-decoration: none;
     letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 32px;
+    width: auto;
 }
 
 .logo span {
@@ -70,7 +82,7 @@ body {
     background: #262a38;
     padding: 2px 6px;
     border-radius: 4px;
-    margin-right: 5px;
+    margin-right: 8px;
 }
 
 .nav-links {
@@ -91,7 +103,20 @@ body {
     color: var(--text-main);
 }
 
-/* --- BOTÕES --- */
+.mobile-menu-btn {
+    display: none;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    font-family: var(--font-mono);
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* ==========================================================
+   3. BOTÕES
+   ========================================================== */
 .btn-primary {
     background: #ffffff;
     color: #000000;
@@ -102,6 +127,8 @@ body {
     transition: all 0.3s ease;
     border: none;
     cursor: pointer;
+    display: inline-block;
+    text-align: center;
 }
 
 .btn-primary:hover {
@@ -118,6 +145,8 @@ body {
     text-decoration: none;
     border: 1px solid var(--border-color);
     transition: all 0.3s ease;
+    display: inline-block;
+    text-align: center;
 }
 
 .btn-secondary:hover {
@@ -129,7 +158,9 @@ body {
     width: 100%;
 }
 
-/* --- HERO SECTION --- */
+/* ==========================================================
+   4. HERO SECTION & TERMINAL DINÂMICO
+   ========================================================== */
 .hero {
     padding: 160px 0 80px;
     text-align: center;
@@ -156,7 +187,10 @@ body {
 }
 
 .cursor {
-    animation: blink 1s infinite;
+    display: inline-block;
+    font-weight: bold;
+    color: var(--text-main);
+    animation: blink 0.8s infinite;
 }
 
 @keyframes blink {
@@ -178,7 +212,7 @@ body {
     margin-bottom: 50px;
 }
 
-/* --- TERMINAL BOX --- */
+/* Terminal Box */
 .terminal-box {
     max-width: 700px;
     margin: 0 auto;
@@ -219,13 +253,32 @@ body {
 .terminal-body {
     padding: 20px;
     font-size: 0.88rem;
+    min-height: 160px;
 }
 
 .command .user { color: #50fa7b; }
-.response { color: var(--text-muted); margin-top: 5px; }
-.response.success { color: #f1fa8c; font-weight: bold; }
 
-/* --- SEÇÕES & CARDS --- */
+.terminal-body .response {
+    color: var(--text-muted);
+    margin-top: 6px;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    animation: fadeIn 0.3s ease-in-out forwards;
+}
+
+.terminal-body .response.success {
+    color: #27c93f;
+    font-weight: bold;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================
+   5. SEÇÕES & CARDS GERAIS
+   ========================================================== */
 .section {
     padding: 90px 0;
 }
@@ -291,14 +344,15 @@ body {
     font-size: 0.95rem;
 }
 
-/* --- GRID PARA 4 INTEGRANTES --- */
+/* ==========================================================
+   6. EQUIPE (4 INTEGRANTES)
+   ========================================================== */
 .grid-4 {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
 }
 
-/* Card do Time */
 .team-card {
     display: flex;
     flex-direction: column;
@@ -307,7 +361,6 @@ body {
     padding: 25px 15px;
 }
 
-/* Foto Pequena de Perfil */
 .team-img {
     width: 80px;
     height: 80px;
@@ -315,7 +368,7 @@ body {
     object-fit: cover;
     border: 2px solid var(--border-color);
     margin-bottom: 15px;
-    background-color: #08090b; /* Fallback enquanto a imagem carrega */
+    background-color: #08090b;
     transition: border-color 0.3s, transform 0.3s;
 }
 
@@ -324,7 +377,6 @@ body {
     transform: scale(1.05);
 }
 
-/* Nome do Integrante */
 .team-name {
     font-size: 1.1rem;
     font-weight: 700;
@@ -332,7 +384,6 @@ body {
     color: var(--text-main);
 }
 
-/* Especialização */
 .team-role {
     font-family: var(--font-mono);
     font-size: 0.8rem;
@@ -341,13 +392,12 @@ body {
     display: block;
 }
 
-/* Badges de Certificações */
 .team-certs {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 6px;
-    margin-top: auto; /* Força os badges a ficarem sempre na base */
+    margin-top: auto;
 }
 
 .team-certs span {
@@ -361,20 +411,9 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* Responsividade para Telas Menores (Tablets e Celulares) */
-@media (max-width: 992px) {
-    .grid-4 {
-        grid-template-columns: repeat(2, 1fr); /* 2 por linha em tablets */
-    }
-}
-
-@media (max-width: 576px) {
-    .grid-4 {
-        grid-template-columns: 1fr; /* 1 por linha em celulares */
-    }
-}
-
-/* --- FORMULÁRIO DE CONTATO --- */
+/* ==========================================================
+   7. FORMULÁRIO DE CONTATO
+   ========================================================== */
 .contact-box {
     max-width: 600px;
     margin: 0 auto;
@@ -409,35 +448,16 @@ body {
     border-color: #5c647d;
 }
 
-/* --- FOOTER --- */
+/* ==========================================================
+   8. FOOTER & REDES SOCIAIS
+   ========================================================== */
 footer {
     border-top: 1px solid var(--border-color);
     padding: 30px 0;
-    text-align: center;
     color: var(--text-muted);
     font-size: 0.85rem;
 }
 
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 15px;
-}
-
-.mono-text {
-    font-family: var(--font-mono);
-}
-
-/* --- RESPONSIVIDADE --- */
-@media (max-width: 768px) {
-    .nav-links { display: none; } /* Pode ser adaptado para menu hambúrguer */
-    .hero h1 { font-size: 2rem; }
-    .footer-content { flex-direction: column; text-align: center; }
-}
-
-/* --- REDES SOCIAIS NO FOOTER --- */
 .footer-content {
     display: flex;
     justify-content: space-between;
@@ -448,6 +468,10 @@ footer {
 
 .footer-left {
     text-align: left;
+}
+
+.mono-text {
+    font-family: var(--font-mono);
 }
 
 .social-links {
@@ -470,7 +494,6 @@ footer {
     text-decoration: none;
 }
 
-/* Efeito ao passar o mouse */
 .social-links a:hover {
     color: var(--text-main);
     background: var(--bg-card-hover);
@@ -479,12 +502,54 @@ footer {
     box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
 }
 
+/* ==========================================================
+   9. MEDIA QUERIES (RESPONSIVIDADE)
+   ========================================================== */
+@media (max-width: 992px) {
+    .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media (max-width: 768px) {
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(12, 13, 16, 0.95);
+        backdrop-filter: blur(12px);
+        padding: 20px;
+        border-bottom: 1px solid var(--border-color);
+        gap: 15px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
     .footer-content {
         flex-direction: column;
         text-align: center;
     }
+
     .footer-left {
         text-align: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .grid-4 {
+        grid-template-columns: 1fr;
     }
 }

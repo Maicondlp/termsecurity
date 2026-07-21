@@ -44,6 +44,7 @@
             </div>
             
             <!-- Terminal de Apresentação Simulado -->
+           <!-- Terminal Dinâmico -->
             <div class="terminal-box">
                 <div class="terminal-header">
                     <span class="dot red"></span>
@@ -51,12 +52,12 @@
                     <span class="dot green"></span>
                     <span class="terminal-title">bash - term-security</span>
                 </div>
-                <div class="terminal-body">
-                    <p class="command"><span class="user">root@term-security:~#</span> ./check_security.sh --target company</p>
-                    <p class="response">[INFO] Iniciando varredura de segurança...</p>
-                    <p class="response">[OK] Firewalls & Criptografia: ATIVADOS</p>
-                    <p class="response">[OK] Análise de Vulnerabilidades: NENHUMA BRECHA ENCONTRADA</p>
-                    <p class="response success">[SUCCESS] Sistema verificado pela Term Security.</p>
+                <div class="terminal-body" id="terminalBody">
+                    <p class="command">
+                        <span class="user">root@term-security:~#</span> 
+                        <span id="typedCommand"></span><span class="cursor">_</span>
+                    </p>
+                    <div id="terminalOutput"></div>
                 </div>
             </div>
         </div>
