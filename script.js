@@ -2,7 +2,7 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
     e.preventDefault();
 
     // 1. INSIRA AQUI O SEU NÚMERO DO WHATSAPP (Com DDD e código do país 55)
-    const numeroWhatsApp = "5521999999999"; 
+    const numeroWhatsApp = "5521972977789"; 
 
     // 2. Coleta os valores digitados nos campos
     const nome = document.getElementById('name').value.trim();
